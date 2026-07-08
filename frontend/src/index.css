@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #eef1f3;
+  --color-paper-dark: #14171a;
+  --color-surface: #ffffff;
+  --color-surface-dark: #1c2024;
+  --color-ink: #1a2226;
+  --color-ink-dark: #e4e8eb;
+  --color-line: #d7dde1;
+  --color-line-dark: #2e3438;
+  --color-muted: #5f6b73;
+  --color-muted-dark: #8b969d;
+  --color-accent: #1d3a5f;
+  --color-accent-dark: #7fb0e8;
+  --color-success: #1f6d45;
+  --color-success-dark: #5fcf94;
+  --color-warning: #92660c;
+  --color-warning-dark: #e0a83f;
+  --color-danger: #8a2c22;
+  --color-danger-dark: #e2685a;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-paper text-ink dark:bg-paper-dark dark:text-ink-dark;
+  font-feature-settings: "tnum" 1;
+}
+
+@layer components {
+  .page {
+    @apply mx-auto p-6;
+  }
+
+  .page-title {
+    @apply text-base font-semibold uppercase tracking-wide text-ink dark:text-ink-dark;
+  }
+
+  .panel {
+    @apply border border-line bg-surface dark:border-line-dark dark:bg-surface-dark;
+  }
+
+  .field {
+    @apply flex flex-col gap-1 text-xs font-medium uppercase tracking-wide text-muted dark:text-muted-dark;
+  }
+
+  .input {
+    @apply mt-0.5 min-w-0 border border-line bg-transparent px-2 py-1 text-sm font-normal normal-case tracking-normal text-ink focus:border-accent focus:outline-none dark:border-line-dark dark:text-ink-dark;
+  }
+
+  .btn-primary {
+    @apply border border-accent bg-accent px-3 py-1.5 text-sm font-medium text-white hover:bg-accent-dark hover:border-accent-dark dark:text-paper-dark;
+  }
+
+  .btn-ghost {
+    @apply border border-line px-3 py-1.5 text-sm font-medium text-ink hover:border-accent hover:text-accent dark:border-line-dark dark:text-ink-dark dark:hover:border-accent-dark dark:hover:text-accent-dark;
+  }
+
+  .link-action {
+    @apply text-accent hover:underline dark:text-accent-dark;
+  }
+
+  .alert-error {
+    @apply border border-danger/50 bg-danger/10 px-3 py-2 text-sm text-danger dark:text-danger-dark;
+  }
+
+  .table-base {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .table-base th {
+    @apply border-b border-line p-2 text-left text-xs font-semibold uppercase tracking-wide text-muted dark:border-line-dark dark:text-muted-dark;
+  }
+
+  .table-base td {
+    @apply border-b border-line/60 p-2 dark:border-line-dark/60;
+  }
+
+  .table-base tbody tr:nth-child(even) {
+    @apply bg-paper/60 dark:bg-paper-dark/40;
+  }
+
+  .table-base tbody tr:hover {
+    @apply bg-accent/5 dark:bg-accent-dark/10;
+  }
+}
